@@ -34,8 +34,29 @@
 
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import dotenv from "dotenv";
+import { dbConnection , sequelize} from "./dbConnection.mjs";
 
 dotenv.config();
+
+const setup = async () => {
+  try {
+     await dbConnection();
+     const queryInterface = sequelize.getQueryInterface();
+      const table =  await queryInterface.showAllTables()
+      const description = await queryInterface.describeTable(table[0]);
+      const rows = await queryInterface.select(null, table[0], {});
+      console.log(JSON.stringify(rows));
+
+      
+   } catch (error) {
+    console.error("Error:", error); 
+  }
+
+
+}
+
+setup();
+
 
 const llm = new ChatGoogleGenerativeAI({
   model: "gemini-1.5-pro",
@@ -76,7 +97,8 @@ const res = async (userInput) => {
   }
 };
 
-res("find all the employees who are highest earners in their respective category");
+// res("find all the employees who are highest earners in their respective category");
+
 
 
 /*
