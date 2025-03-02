@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.use('/api' ,queryInfarense)
 
-
+// app start
 app.listen(port, async(req,res) => {
  const conn = await dbConnection();
  if(conn){
