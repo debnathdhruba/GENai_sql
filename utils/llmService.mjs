@@ -6,7 +6,7 @@ import userPrompt from "../prompt/userPrompt.mjs";
 dotenv.config();
 
 
-export class LlmService {
+export class LLmService {
   constructor() {
     this.llm = new ChatGoogleGenerativeAI({
       model: "gemini-1.5-pro",
