@@ -1,7 +1,7 @@
 import { Sequelize } from 'sequelize';
 
 // Create a sequelize instance with connection pooling
-const sequelize = new Sequelize('example', 'root', 'root', {
+const sequelize = new Sequelize('shop', 'root', 'root', {
   host: 'localhost',
   dialect: 'mysql',
   // Configure connection pool

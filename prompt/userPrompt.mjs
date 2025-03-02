@@ -1,8 +1,11 @@
 export default async function userPrompt(userInput, tableColumsInfoMap){
   const tableColoumnDetails =async()=>{
+    let str = ""
     for(const[key,val] of Object.entries(tableColumsInfoMap)){
-      return `Table: ${key} ColumnsDetails: ${JSON.stringify(val)}/n`
+         str = str + `\n Table: ${key} \n ColumnsDetails: ${JSON.stringify(val)}` + '\n'  
     }
+    // console.log(str)
+    return str;
   }
     const promt = `
     I recived the Tables name and the columns details based in this information I ,generate a valid MySQL query that precisely translates this natural language request. Return ONLY a JSON object in this exact format:
