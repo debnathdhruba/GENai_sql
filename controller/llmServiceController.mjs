@@ -1,4 +1,4 @@
-import express, { query, response } from 'express';
+import express from 'express';
 import { LlmService } from '../utils/llmService.mjs';
 import { sequelize } from '../dbConnection/dbConnection.mjs';
 const router = express.Router();
